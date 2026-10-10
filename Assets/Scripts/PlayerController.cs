@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") ||
+            collision.gameObject.CompareTag("Obstacle"))
         {
             GameOver();
         }
