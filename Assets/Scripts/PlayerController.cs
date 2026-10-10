@@ -19,6 +19,14 @@ public class PlayerController : MonoBehaviour
         Jump();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            GameOver();
+        }
+    }
+
     private void Jump()
     {
         if (_input.JumpIsPressed)
@@ -26,5 +34,10 @@ public class PlayerController : MonoBehaviour
             _rigidbody.linearVelocity = Vector2.up * _velocityUp;
             _input.EndJump();
         }
+    }
+
+    private void GameOver()
+    {
+        GameManager.Instance.ShowGameOver();
     }
 }

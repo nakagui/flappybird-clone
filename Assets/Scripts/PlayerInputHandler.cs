@@ -11,6 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void EndJump()
     {
+        Debug.Log("Jump");
         JumpIsPressed = false;
     }
 }
