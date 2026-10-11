@@ -7,9 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _gameOverScreen;
     [SerializeField] private Button _playAgainButton;
-    [SerializeField] private TextMeshProUGUI _scoreText;
     public static GameManager Instance { get; private set; }
-    private int _scoreCount;
 
     private void Awake()
     {
@@ -26,15 +24,8 @@ public class GameManager : MonoBehaviour
     public void PlayAgain()
     {
         Continue();
-        _scoreCount = 0;
-        _scoreText.text = _scoreCount.ToString();
+        ScoreManager.Instance.ResetScore();
         SceneManager.LoadScene("Level01");
-    }
-
-    public void MakeScore()
-    {
-        _scoreCount++;
-        _scoreText.text = _scoreCount.ToString();
     }
 
     private void Pause()
